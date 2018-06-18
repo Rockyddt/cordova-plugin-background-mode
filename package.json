@@ -1,9 +1,9 @@
 {
-  "name": "cordova-plugin-background-mode",
-  "version": "0.7.2",
+  "name": "cordova-plugin-rockyddt-background-mode",
+  "version": "0.7.5",
   "description": "Prevent apps from going to sleep in background.",
   "cordova": {
-    "id": "cordova-plugin-background-mode",
+    "id": "cordova-plugin-rockddt-background-mode",
     "platforms": [
       "ios",
       "android",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/katzer/cordova-plugin-background-mode.git"
+    "url": "git+https://github.com/Rockyddt/cordova-plugin-background-mode.git"
   },
   "keywords": [
     "appplant",
@@ -36,10 +36,10 @@
       "version": ">=10.0.14393.0"
     }
   ],
-  "author": "Sebastián Katzer",
+  "author": "Sebastián Katzer & Wenxin Shi",
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/katzer/cordova-plugin-background-mode/issues"
+    "url": "https://github.com/Rockyddt/cordova-plugin-background-mode/issues"
   },
-  "homepage": "https://github.com/katzer/cordova-plugin-background-mode#readme"
+  "homepage": "https://github.com/Rockyddt/cordova-plugin-background-mode#readme"
 }
