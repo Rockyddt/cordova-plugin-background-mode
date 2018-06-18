@@ -25,6 +25,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.AppTask;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -148,14 +149,14 @@ class BackgroundExt {
      * Move app to foreground.
      */
     private void moveToForeground() {
-        Activity  app = getActivity();
+        Activity  app = getApp();
         String pkgName  = app.getPackageName();
         Intent intent = app.getPackageManager().getLaunchIntentForPackage(pkgName);
 
         intent.addFlags(
             Intent.FLAG_ACTIVITY_CLEAR_TOP  |
             Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApp(), 0, intent, 0);
         try {
             pendingIntent.send();
         } catch (PendingIntent.CanceledException e) {
