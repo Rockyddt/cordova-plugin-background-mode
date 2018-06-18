@@ -3,7 +3,7 @@
     <b><a href="https://github.com/katzer/cordova-plugin-background-mode/tree/example">SAMPLE APP</a> :point_right:</b>
 </p>
 
-Cordova Background Plugin [![npm version](https://badge.fury.io/js/cordova-plugin-background-mode.svg)](http://badge.fury.io/js/cordova-plugin-background-mode) [![Build Status](https://travis-ci.org/katzer/cordova-plugin-background-mode.svg?branch=master)](https://travis-ci.org/katzer/cordova-plugin-background-mode) [![codebeat badge](https://codebeat.co/badges/49709283-b313-4ced-8630-f520baaec7b5)](https://codebeat.co/projects/github-com-katzer-cordova-plugin-background-mode)
+Cordova Background Plugin [![npm version](https://badge.fury.io/js/cordova-plugin-rockyddt-background-mode.svg)](https://badge.fury.io/js/cordova-plugin-rockyddt-background-mode) [![Build Status](https://travis-ci.org/Rockyddt/cordova-plugin-background-mode.svg?branch=master)](https://travis-ci.org/Rockyddt/cordova-plugin-background-mode) [![codebeat badge](https://codebeat.co/badges/b5f3865f-e0df-4bd3-89ba-bc442bb55077)](https://codebeat.co/projects/github-com-rockyddt-cordova-plugin-background-mode-master)
 =========================
 
 Plugin for the [Cordova][cordova] framework to perform infinite background execution.
