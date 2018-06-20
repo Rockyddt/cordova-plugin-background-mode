@@ -43,6 +43,7 @@ import org.apache.cordova.PluginResult.Status;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+
 import static android.content.Context.ACTIVITY_SERVICE;
 import static android.content.Context.POWER_SERVICE;
 import static android.view.WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON;
@@ -58,7 +59,7 @@ class BackgroundExt {
     // Weak reference to the cordova web view passed by the plugin
     private final WeakReference<CordovaWebView> webView;
 
-    private PowerManager.WakeLock wakeLock;
+    private PowerManager.WakeLock wakeLock;  
 
     /**
      * Initialize the extension to perform non-background related tasks.
@@ -139,11 +140,19 @@ class BackgroundExt {
      * Move app to background.
      */
     private void moveToBackground() {
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-
-        intent.addCategory(Intent.CATEGORY_HOME);
-        getApp().startActivity(intent);
+        getApp().moveTaskToBack(true);
     }
+
+    private void logToView(String log){
+      String previous = "javascript:console.log('"+log+"')";
+      cordova.get().getActivity().runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+          webView.get().loadUrl(previous);
+        }
+      });
+    }
+
 
     /**
      * Move app to foreground.
@@ -153,10 +162,8 @@ class BackgroundExt {
         String pkgName  = app.getPackageName();
         Intent intent = app.getPackageManager().getLaunchIntentForPackage(pkgName);
 
-        intent.addFlags(
-            Intent.FLAG_ACTIVITY_CLEAR_TOP  |
-            Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(getApp(), 0, intent, 0);
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApp(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         try {
             pendingIntent.send();
         } catch (PendingIntent.CanceledException e) {
